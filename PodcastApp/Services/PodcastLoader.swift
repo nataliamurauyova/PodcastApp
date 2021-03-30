@@ -40,6 +40,15 @@ class Loader: ObservableObject {
         })
     }
 
+    func downloadPodcast(item: RSSFeedItem) {
+//        urlSession.downloadTask(with: item.enclosure?.attributes?.url ?? URL(string: "")) { (urk, response
+//            error
+//        }
+        urlSession.downloadTask(with: URL(string: item.enclosure?.attributes?.url ?? "")!) { (url, response, error) in
+            
+        }
+    }
+
     func loadIfNeeded() {
         guard case .ready = self.state else { return }
         self.load()

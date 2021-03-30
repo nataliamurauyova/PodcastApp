@@ -11,7 +11,19 @@ import SwiftUI
 struct PodcastAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                AllPodcastsView()
+                    .tabItem {
+                        Image(systemName: "music.note.list")
+                        Text("Feed")
+                    }
+
+                SavedPodcastsView()
+                    .tabItem {
+                        Image(systemName: "tray.and.arrow.down")
+                        Text("Your Podcasts")
+                    }
+            }
         }
     }
 }
